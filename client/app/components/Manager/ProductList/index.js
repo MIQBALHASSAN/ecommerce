@@ -30,7 +30,7 @@ const ProductList = (props) => {
               <td>{product.description}</td>
               <td>
                 <img
-                  className="item-image"
+                  className="item-image dashboard_image"
                   src={`http://localhost:8080/${
                     product && product.imageUrl
                       ? product.imageUrl
