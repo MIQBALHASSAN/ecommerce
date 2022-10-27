@@ -19,7 +19,7 @@ const OrderList = (props) => {
       return (
         <img
           className="item-image"
-          src={` http://localhost:8080/$${
+          src={` http://localhost:8080/${
             product && product?.imageUrl
               ? product?.imageUrl
               : "/images/placeholder-image.png"
