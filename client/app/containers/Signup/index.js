@@ -4,19 +4,20 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { Row, Col } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { Row, Col } from "reactstrap";
+import { Redirect, Link } from "react-router-dom";
 
-import actions from '../../actions';
+import actions from "../../actions";
 
-import Input from '../../components/Common/Input';
-import Button from '../../components/Common/Button';
-import Checkbox from '../../components/Common/Checkbox';
-import LoadingIndicator from '../../components/Common/LoadingIndicator';
-import SignupProvider from '../../components/Common/SignupProvider';
+import Input from "../../components/Common/Input";
+import Button from "../../components/Common/Button";
+import Checkbox from "../../components/Common/Checkbox";
+import LoadingIndicator from "../../components/Common/LoadingIndicator";
+import SignupProvider from "../../components/Common/SignupProvider";
+import { allimages } from "../../../assets/image";
 
 class Signup extends React.PureComponent {
   render() {
@@ -29,104 +30,119 @@ class Signup extends React.PureComponent {
       isSubscribed,
       signupChange,
       signUp,
-      subscribeChange
+      subscribeChange,
     } = this.props;
 
-    if (authenticated) return <Redirect to='/dashboard' />;
+    if (authenticated) return <Redirect to="/dashboard" />;
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
       event.preventDefault();
       signUp();
     };
 
     return (
-      <div className='signup-form'>
+      <div className="signup-form shadow p-5">
         {isLoading && <LoadingIndicator />}
-        <h2>Sign Up</h2>
-        <hr />
+        <h2>Sign Up With Email Address</h2>
+        {/* <hr /> */}
         <form onSubmit={handleSubmit} noValidate>
           <Row>
+            <Col xs={{ size: 12 }} md={{ size: 6 }} lg={{ size: 6 }}>
+              <div className="register-page-image">
+                <img src={allimages.registerBannergiff} alt="image" />
+              </div>
+            </Col>
             <Col
-              xs={{ size: 12, order: 2 }}
-              md={{ size: '6', order: 1 }}
-              className='p-0'
+              xs={{ size: 12 }}
+              md={{ size: 6 }}
+              lg={{ size: 6 }}
+              // className="p-0"
             >
-              <Col xs='12' md='12'>
+              <Col xs="12" md="12">
                 <Input
-                  type={'text'}
-                  error={formErrors['email']}
-                  label={'Email Address'}
-                  name={'email'}
-                  placeholder={'Please Enter Your Email'}
+                  type={"text"}
+                  error={formErrors["email"]}
+                  label={"Email Address"}
+                  name={"email"}
+                  placeholder={"Please Enter Your Email"}
                   value={signupFormData.email}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
                   }}
                 />
               </Col>
-              <Col xs='12' md='12'>
+              <Col xs="12" md="12">
                 <Input
-                  type={'text'}
-                  error={formErrors['firstName']}
-                  label={'First Name'}
-                  name={'firstName'}
-                  placeholder={'Please Enter Your First Name'}
+                  type={"text"}
+                  error={formErrors["firstName"]}
+                  label={"First Name"}
+                  name={"firstName"}
+                  placeholder={"Please Enter Your First Name"}
                   value={signupFormData.firstName}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
                   }}
                 />
               </Col>
-              <Col xs='12' md='12'>
+              <Col xs="12" md="12">
                 <Input
-                  type={'text'}
-                  error={formErrors['lastName']}
-                  label={'Last Name'}
-                  name={'lastName'}
-                  placeholder={'Please Enter Your Last Name'}
+                  type={"text"}
+                  error={formErrors["lastName"]}
+                  label={"Last Name"}
+                  name={"lastName"}
+                  placeholder={"Please Enter Your Last Name"}
                   value={signupFormData.lastName}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
                   }}
                 />
               </Col>
-              <Col xs='12' md='12'>
+              <Col xs="12" md="12">
                 <Input
-                  type={'password'}
-                  label={'Password'}
-                  error={formErrors['password']}
-                  name={'password'}
-                  placeholder={'Please Enter Your Password'}
+                  type={"password"}
+                  label={"Password"}
+                  error={formErrors["password"]}
+                  name={"password"}
+                  placeholder={"Please Enter Your Password"}
                   value={signupFormData.password}
                   onInputChange={(name, value) => {
                     signupChange(name, value);
                   }}
                 />
               </Col>
+              <Col xs="12" md="12">
+                <Button
+                  type="submit"
+                  className="register-form-submit-btn"
+                  text="Sign Up"
+                  disabled={isSubmitting}
+                />
+              </Col>
             </Col>
-            <Col
+
+            {/* <Col
               xs={{ size: 12, order: 1 }}
               md={{ size: '6', order: 2 }}
               className='mb-2 mb-md-0'
             >
               <SignupProvider />
-            </Col>
+            </Col> */}
           </Row>
           <hr />
-          <Checkbox
-            id={'subscribe'}
-            label={'Subscribe to newsletter'}
-            checked={isSubscribed}
-            onChange={subscribeChange}
-          />
-          <div className='d-flex flex-column flex-md-row align-items-md-center justify-content-between'>
-            <Button
-              type='submit'
-              variant='primary'
-              text='Sign Up'
-              disabled={isSubmitting}
+          <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+            <Checkbox
+              id={"subscribe"}
+              label={"Subscribe to newsletter"}
+              checked={isSubscribed}
+              onChange={subscribeChange}
             />
-            <Link className='mt-3 mt-md-0 redirect-link' to={'/login'}>
+            {/* <Button
+              type="submit"
+              variant="primary"
+              text="Sign Up"
+              disabled={isSubmitting}
+            /> */}
+            <Link className="mt-3 mt-md-0 redirect-link" to={"/login"}>
               Back to login
             </Link>
           </div>
@@ -136,14 +152,14 @@ class Signup extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authenticated: state.authentication.authenticated,
     signupFormData: state.signup.signupFormData,
     formErrors: state.signup.formErrors,
     isLoading: state.signup.isLoading,
     isSubmitting: state.signup.isSubmitting,
-    isSubscribed: state.signup.isSubscribed
+    isSubscribed: state.signup.isSubscribed,
   };
 };
 

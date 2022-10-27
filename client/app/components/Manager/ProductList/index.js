@@ -7,13 +7,49 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { Table, Badge } from "reactstrap";
 
 const ProductList = (props) => {
   const { products } = props;
   console.log(products);
   return (
     <div className="p-list">
-      {products.map((product, index) => (
+      <Table responsive bordered={true} className="text-center">
+        <thead className="bg-primary text-light text-center">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product, index) => (
+            <tr key={index}>
+              <td>{product.name}</td>
+              <td>{product.description}</td>
+              <td>
+                <img
+                  className="item-image"
+                  src={`http://localhost:8080/${
+                    product && product.imageUrl
+                      ? product.imageUrl
+                      : "/images/placeholder-image.png"
+                  }`}
+                />
+              </td>
+              <td>
+                <Link to={`/dashboard/product/edit/${product._id}`} key={index}>
+                  <Badge color="info" pill className="admin_edit_btn">
+                    Edit
+                  </Badge>
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      {/* {products.map((product, index) => (
         <Link
           to={`/dashboard/product/edit/${product._id}`}
           key={index}
@@ -32,7 +68,7 @@ const ProductList = (props) => {
             <p className="mb-2 text-truncate">{product.description}</p>
           </div>
         </Link>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -1,0 +1,48 @@
+.login-form {
+  margin: 10% 1%;
+  border-radius: 10px;
+}
+.login-page-image {
+  height: 500px;
+  width: 100%;
+}
+.login-page-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+.login-form-title {
+  font-size: 2em !important;
+  color: #455a63 !important;
+}
+.login-from-new-user button span {
+  font-size: 1rem !important;
+  font-family: "Public Sans", sans-serif;
+  color: #455a63;
+  text-decoration: none;
+}
+.forgot-password-link {
+  color: #455a63 !important;
+}
+.login-form-submit-btn {
+  background-color: #455a63 !important;
+  color: #fff !important;
+  padding: 15px 22px !important;
+  min-width: 100% !important;
+  border-radius: 31px !important;
+}
+.login-form-submit-btn span {
+  color: #fff !important;
+  font-size: 16px !important;
+}
+.login-form input {
+  border-radius: 10px !important;
+  padding: 15px !important;
+  height: 55px !important;
+  border: 1px solid #455a63 !important;
+}
+.login-form input::placeholder {
+  color: #455a63 !important;
+  font-size: 1rem;
+  font-style: italic;
+}

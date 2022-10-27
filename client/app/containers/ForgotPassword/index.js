@@ -4,16 +4,16 @@
  *
  */
 
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { Row, Col } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import { Row, Col } from "reactstrap";
+import { Redirect, Link } from "react-router-dom";
 
-import actions from '../../actions';
+import actions from "../../actions";
 
-import Input from '../../components/Common/Input';
-import Button from '../../components/Common/Button';
+import Input from "../../components/Common/Input";
+import Button from "../../components/Common/Button";
 
 class ForgotPassword extends React.PureComponent {
   render() {
@@ -22,59 +22,61 @@ class ForgotPassword extends React.PureComponent {
       forgotFormData,
       formErrors,
       forgotPasswordChange,
-      forgotPassowrd
+      forgotPassowrd,
     } = this.props;
 
-    if (authenticated) return <Redirect to='/dashboard' />;
+    if (authenticated) return <Redirect to="/dashboard" />;
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
       event.preventDefault();
       forgotPassowrd();
     };
 
     return (
-      <div className='forgot-password-form'>
-        <h3>Forgot Password</h3>
-        <hr />
+      <div className="forgot-password-form">
+        <div className="d-flex justify-content-center align-items-center">
+          <h3>Forgot Password</h3>
+          {/* <Link className="redirect-link" to={"/login"}>
+            Back to login
+          </Link> */}
+        </div>
         <form onSubmit={handleSubmit}>
           <Row>
-            <Col xs='12' md='6'>
-              <Input
-                type={'text'}
-                error={formErrors['email']}
-                label={'Email Address'}
-                name={'email'}
-                placeholder={'Please Enter Your Email'}
-                value={forgotFormData.email}
-                onInputChange={(name, value) => {
-                  forgotPasswordChange(name, value);
-                }}
-              />
+            <Col xs="12">
+              <div className="forgot-password-form-wrap d-flex justify-content-center">
+                <Input
+                  custom_class={"forgot_input"}
+                  type={"text"}
+                  error={formErrors["email"]}
+                  // label={"Email Address"}
+                  name={"email"}
+                  placeholder={"Please Enter Your Email"}
+                  value={forgotFormData.email}
+                  onInputChange={(name, value) => {
+                    forgotPasswordChange(name, value);
+                  }}
+                />
+                <Button
+                  type="submit"
+                  // variant="primary"
+                  text="Send Email"
+                  // className="mb-3 mb-md-0"
+                  className={"forgot_btn"}
+                />
+              </div>
             </Col>
           </Row>
-          <hr />
-          <div className='d-flex flex-column flex-md-row align-items-md-center justify-content-between'>
-            <Button
-              type='submit'
-              variant='primary'
-              text='Send Email'
-              className='mb-3 mb-md-0'
-            />
-            <Link className='redirect-link' to={'/login'}>
-              Back to login
-            </Link>
-          </div>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authenticated: state.authentication.authenticated,
     forgotFormData: state.forgotPassword.forgotFormData,
-    formErrors: state.forgotPassword.formErrors
+    formErrors: state.forgotPassword.formErrors,
   };
 };
 

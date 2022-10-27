@@ -4,19 +4,20 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
-import { Row, Col } from 'reactstrap';
+import { connect } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
+import { Row, Col } from "reactstrap";
 
-import actions from '../../actions';
+import actions from "../../actions";
 
-import Input from '../../components/Common/Input';
-import Button from '../../components/Common/Button';
-import LoadingIndicator from '../../components/Common/LoadingIndicator';
-import SignupProvider from '../../components/Common/SignupProvider';
-
+import Input from "../../components/Common/Input";
+import Button from "../../components/Common/Button";
+import LoadingIndicator from "../../components/Common/LoadingIndicator";
+import SignupProvider from "../../components/Common/SignupProvider";
+import { allimages } from "../../../assets/image.js";
+import "./login.css";
 class Login extends React.PureComponent {
   render() {
     const {
@@ -26,103 +27,113 @@ class Login extends React.PureComponent {
       login,
       formErrors,
       isLoading,
-      isSubmitting
+      isSubmitting,
     } = this.props;
 
-    if (authenticated) return <Redirect to='/dashboard' />;
+    if (authenticated) return <Redirect to="/dashboard" />;
 
     const registerLink = () => {
-      this.props.history.push('/register');
+      this.props.history.push("/register");
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
       event.preventDefault();
       login();
     };
 
     return (
-      <div className='login-form'>
-        {isLoading && <LoadingIndicator />}
-        <h2>Login</h2>
-        <hr />
-        <form onSubmit={handleSubmit} noValidate>
-          <Row>
-            <Col
-              xs={{ size: 12, order: 2 }}
-              md={{ size: '6', order: 1 }}
-              className='p-0'
-            >
-              <Col xs='12' md='12'>
-                <Input
-                  type={'text'}
-                  error={formErrors['email']}
-                  label={'Email Address'}
-                  name={'email'}
-                  placeholder={'Please Enter Your Email'}
-                  value={loginFormData.email}
-                  onInputChange={(name, value) => {
-                    loginChange(name, value);
-                  }}
-                />
-              </Col>
-              <Col xs='12' md='12'>
-                <Input
-                  type={'password'}
-                  error={formErrors['password']}
-                  label={'Password'}
-                  name={'password'}
-                  placeholder={'Please Enter Your Password'}
-                  value={loginFormData.password}
-                  onInputChange={(name, value) => {
-                    loginChange(name, value);
-                  }}
-                />
-              </Col>
-            </Col>
-            <Col
-              xs={{ size: 12, order: 1 }}
-              md={{ size: '6', order: 2 }}
-              className='mb-2 mb-md-0'
-            >
-              <SignupProvider />
-            </Col>
-          </Row>
-          <hr />
-          <div className='d-flex flex-column flex-md-row align-items-md-center justify-content-between'>
-            <div className='d-flex justify-content-between align-items-center mb-3 mb-md-0'>
+      <div className="login-form shadow">
+        <Row>
+          <Col xs={{ size: 12 }} md={{ size: 6 }} lg={{ size: 6 }}>
+            <div className="login-page-image">
+              <img src={allimages.loginBannergiff} alt="image" />
+            </div>
+          </Col>
+          <Col
+            xs={{ size: 12 }}
+            md={{ size: 6 }}
+            lg={{ size: 6 }}
+            className="d-flex flex-column justify-content-center align-items-center pr-5"
+          >
+            {isLoading && <LoadingIndicator />}
+            <h2 className="login-form-title">Sign in with Email address</h2>
+            <div className="login-from-new-user">
+              New user?
               <Button
-                type='submit'
-                variant='primary'
-                text='Login'
-                disabled={isSubmitting}
-              />
-              <Button
-                text='Create an account'
-                variant='link'
-                className='ml-md-3'
+                text="Create an account"
+                variant="link"
+                className="ml-md-3"
                 onClick={registerLink}
               />
             </div>
-            <Link
-              className='redirect-link forgot-password-link'
-              to={'/forgot-password'}
-            >
-              Forgot Password?
-            </Link>
-          </div>
-        </form>
+            <form onSubmit={handleSubmit} noValidate>
+              <Row>
+                <Col xs="12" md="12">
+                  <Input
+                    type={"text"}
+                    error={formErrors["email"]}
+                    label={"Email Address"}
+                    name={"email"}
+                    placeholder={"Please Enter Your Email"}
+                    value={loginFormData.email}
+                    onInputChange={(name, value) => {
+                      loginChange(name, value);
+                    }}
+                  />
+                </Col>
+                <Col xs="12" md="12">
+                  <Input
+                    type={"password"}
+                    error={formErrors["password"]}
+                    label={"Password"}
+                    name={"password"}
+                    placeholder={"Please Enter Your Password"}
+                    value={loginFormData.password}
+                    onInputChange={(name, value) => {
+                      loginChange(name, value);
+                    }}
+                  />
+                </Col>
+                {/* <Col
+                  xs={{ size: 12, order: 1 }}
+                  md={{ size: "6", order: 2 }}
+                  className="mb-2 mb-md-0"
+                >
+                  <SignupProvider />
+                </Col> */}
+              </Row>
+              <div className="d-flex flex-column ">
+                <Link
+                  className="forgot-password-link py-3 ml-auto"
+                  to={"/forgot-password"}
+                >
+                  Forgot Password?
+                </Link>
+                <div className="d-flex justify-content-between align-items-center mb-3 mb-md-0">
+                  <Button
+                    type="submit"
+                    variant=""
+                    className="login-form-submit-btn"
+                    text="Login"
+                    disabled={isSubmitting}
+                  />
+                </div>
+              </div>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authenticated: state.authentication.authenticated,
     loginFormData: state.login.loginFormData,
     formErrors: state.login.formErrors,
     isLoading: state.login.isLoading,
-    isSubmitting: state.login.isSubmitting
+    isSubmitting: state.login.isSubmitting,
   };
 };
 

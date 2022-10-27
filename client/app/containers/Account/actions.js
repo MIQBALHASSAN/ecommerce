@@ -4,37 +4,37 @@
  *
  */
 
-import { success } from 'react-notification-system-redux';
-import axios from 'axios';
+import { success } from "react-notification-system-redux";
+import axios from "axios";
 
 import {
   ACCOUNT_CHANGE,
   FETCH_PROFILE,
   CLEAR_ACCOUNT,
-  SET_PROFILE_LOADING
-} from './constants';
-import handleError from '../../utils/error';
+  SET_PROFILE_LOADING,
+} from "./constants";
+import handleError from "../../utils/error";
 
 export const accountChange = (name, value) => {
   let formData = {};
   formData[name] = value;
-
+  console.log(formData);
   return {
     type: ACCOUNT_CHANGE,
-    payload: formData
+    payload: formData,
   };
 };
 
 export const clearAccount = () => {
   return {
-    type: CLEAR_ACCOUNT
+    type: CLEAR_ACCOUNT,
   };
 };
 
-export const setProfileLoading = value => {
+export const setProfileLoading = (value) => {
   return {
     type: SET_PROFILE_LOADING,
-    payload: value
+    payload: value,
   };
 };
 
@@ -59,13 +59,13 @@ export const updateProfile = () => {
 
     try {
       const response = await axios.put(`/api/user`, {
-        profile
+        profile,
       });
 
       const successfulOptions = {
         title: `${response.data.message}`,
-        position: 'tr',
-        autoDismiss: 1
+        position: "tr",
+        autoDismiss: 1,
       };
 
       dispatch({ type: FETCH_PROFILE, payload: response.data.user });
