@@ -41,112 +41,114 @@ class Signup extends React.PureComponent {
     };
 
     return (
-      <div className="signup-form shadow p-5">
-        {isLoading && <LoadingIndicator />}
-        <h2>Sign Up With Email Address</h2>
-        {/* <hr /> */}
-        <form onSubmit={handleSubmit} noValidate>
-          <Row>
-            <Col xs={{ size: 12 }} md={{ size: 6 }} lg={{ size: 6 }}>
-              <div className="register-page-image">
-                <img src={allimages.registerBannergiff} alt="image" />
-              </div>
-            </Col>
-            <Col
-              xs={{ size: 12 }}
-              md={{ size: 6 }}
-              lg={{ size: 6 }}
-              // className="p-0"
-            >
-              <Col xs="12" md="12">
-                <Input
-                  type={"text"}
-                  error={formErrors["email"]}
-                  label={"Email Address"}
-                  name={"email"}
-                  placeholder={"Please Enter Your Email"}
-                  value={signupFormData.email}
-                  onInputChange={(name, value) => {
-                    signupChange(name, value);
-                  }}
-                />
+      <div className="signup-form-container">
+        <div className="signup-form shadow p-5">
+          {isLoading && <LoadingIndicator />}
+          <h2>Sign Up With Email Address</h2>
+          {/* <hr /> */}
+          <form onSubmit={handleSubmit} noValidate>
+            <Row>
+              <Col xs={{ size: 12 }} md={{ size: 6 }} lg={{ size: 6 }}>
+                <div className="register-page-image">
+                  <img src={allimages.registerBannergiff} alt="image" />
+                </div>
               </Col>
-              <Col xs="12" md="12">
-                <Input
-                  type={"text"}
-                  error={formErrors["firstName"]}
-                  label={"First Name"}
-                  name={"firstName"}
-                  placeholder={"Please Enter Your First Name"}
-                  value={signupFormData.firstName}
-                  onInputChange={(name, value) => {
-                    signupChange(name, value);
-                  }}
-                />
+              <Col
+                xs={{ size: 12 }}
+                md={{ size: 6 }}
+                lg={{ size: 6 }}
+                // className="p-0"
+              >
+                <Col xs="12" md="12">
+                  <Input
+                    type={"text"}
+                    error={formErrors["email"]}
+                    label={"Email Address"}
+                    name={"email"}
+                    placeholder={"Please Enter Your Email"}
+                    value={signupFormData.email}
+                    onInputChange={(name, value) => {
+                      signupChange(name, value);
+                    }}
+                  />
+                </Col>
+                <Col xs="12" md="12">
+                  <Input
+                    type={"text"}
+                    error={formErrors["firstName"]}
+                    label={"First Name"}
+                    name={"firstName"}
+                    placeholder={"Please Enter Your First Name"}
+                    value={signupFormData.firstName}
+                    onInputChange={(name, value) => {
+                      signupChange(name, value);
+                    }}
+                  />
+                </Col>
+                <Col xs="12" md="12">
+                  <Input
+                    type={"text"}
+                    error={formErrors["lastName"]}
+                    label={"Last Name"}
+                    name={"lastName"}
+                    placeholder={"Please Enter Your Last Name"}
+                    value={signupFormData.lastName}
+                    onInputChange={(name, value) => {
+                      signupChange(name, value);
+                    }}
+                  />
+                </Col>
+                <Col xs="12" md="12">
+                  <Input
+                    type={"password"}
+                    label={"Password"}
+                    error={formErrors["password"]}
+                    name={"password"}
+                    placeholder={"Please Enter Your Password"}
+                    value={signupFormData.password}
+                    onInputChange={(name, value) => {
+                      signupChange(name, value);
+                    }}
+                  />
+                </Col>
+                <Col xs="12" md="12">
+                  <Button
+                    type="submit"
+                    className="register-form-submit-btn"
+                    text="Sign Up"
+                    disabled={isSubmitting}
+                  />
+                </Col>
               </Col>
-              <Col xs="12" md="12">
-                <Input
-                  type={"text"}
-                  error={formErrors["lastName"]}
-                  label={"Last Name"}
-                  name={"lastName"}
-                  placeholder={"Please Enter Your Last Name"}
-                  value={signupFormData.lastName}
-                  onInputChange={(name, value) => {
-                    signupChange(name, value);
-                  }}
-                />
-              </Col>
-              <Col xs="12" md="12">
-                <Input
-                  type={"password"}
-                  label={"Password"}
-                  error={formErrors["password"]}
-                  name={"password"}
-                  placeholder={"Please Enter Your Password"}
-                  value={signupFormData.password}
-                  onInputChange={(name, value) => {
-                    signupChange(name, value);
-                  }}
-                />
-              </Col>
-              <Col xs="12" md="12">
-                <Button
-                  type="submit"
-                  className="register-form-submit-btn"
-                  text="Sign Up"
-                  disabled={isSubmitting}
-                />
-              </Col>
-            </Col>
 
-            {/* <Col
+              {/* <Col
               xs={{ size: 12, order: 1 }}
               md={{ size: '6', order: 2 }}
               className='mb-2 mb-md-0'
             >
               <SignupProvider />
             </Col> */}
-          </Row>
-          <hr />
-          <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
-            <Checkbox
-              id={"subscribe"}
-              label={"Subscribe to newsletter"}
-              checked={isSubscribed}
-              onChange={subscribeChange}
-            />
-            {/* <Button
+            </Row>
+            <hr />
+            <div className="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+              <Checkbox
+                id={"subscribe"}
+                label={"Subscribe to newsletter"}
+                checked={isSubscribed}
+                onChange={subscribeChange}
+              />
+              {/* <Button
               type="submit"
               variant="primary"
               text="Sign Up"
               disabled={isSubmitting}
             /> */}
-            <Link className="mt-3 mt-md-0 redirect-link" to={"/login"}>
-              Back to login
-            </Link>
-          </div>
-        </form>
+              <Link className="mt-3 mt-md-0 redirect-link" to={"/login"}>
+                Back to login
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

@@ -11,7 +11,7 @@ import { Badge, Table } from "reactstrap";
 
 const BrandList = (props) => {
   const { brands, user } = props;
-  console.log(brands);
+  // console.log(brands);
   return (
     <div className="b-list">
       <Table responsive bordered={true} className="text-center">

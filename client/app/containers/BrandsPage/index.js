@@ -4,13 +4,13 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import actions from '../../actions';
+import actions from "../../actions";
 
-import BrandList from '../../components/Store/BrandList';
+import BrandList from "../../components/Store/BrandList";
 
 class BrandsPage extends React.PureComponent {
   componentDidMount() {
@@ -21,16 +21,18 @@ class BrandsPage extends React.PureComponent {
     const { brands } = this.props;
 
     return (
-      <div className='brands-page'>
-        <BrandList brands={brands} />
+      <div className="brand-page-container mt-5 mb-5">
+        <div className="brands-page">
+          <BrandList brands={brands} />
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    brands: state.brand.storeBrands
+    brands: state.brand.storeBrands,
   };
 };
 

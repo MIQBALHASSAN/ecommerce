@@ -226,3 +226,33 @@
 .order-summary hr {
   border-color: #11192a;
 }
+
+/*============================================
+                  
+                frontend Style
+
+=============================================*/
+.header {
+  padding: 0 4.2%;
+}
+.login-form-container,
+.signup-form-container {
+  width: 50%;
+  margin: auto;
+}
+.shop-page-container,
+.homepage-container,
+.sell-container,
+.contact-container,
+.brand-page-container {
+  width: 90%;
+  margin: auto;
+}
+.sell-container,
+.contact-container {
+  background-color: #e5e5e5;
+  padding: 1% 2%;
+}
+.brand-list .brand-box {
+  background-color: #e4e6eb;
+}
