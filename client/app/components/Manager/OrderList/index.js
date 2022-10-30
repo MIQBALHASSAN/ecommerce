@@ -13,7 +13,7 @@ import { formatDate } from "../../../utils/date";
 
 const OrderList = (props) => {
   const { orders } = props;
-  console.log(orders);
+  // console.log(orders);
   const renderFirstItem = (order) => {
     if (order.products) {
       const product = order.products[0].product;
@@ -57,7 +57,7 @@ const OrderList = (props) => {
               <td>{order?.products[0].quantity}</td>
               <td>{order?.products[0].product.name}</td>
               <td>{order?.products[0].product.brand.name}</td>
-              <td>{renderFirstItem(order)}</td>
+              <td className="order_list_image">{renderFirstItem(order)}</td>
               <td>{formatDate(order.created)}</td>
               <td>{order?.totalWithTax ? order?.totalWithTax : 0}</td>
               <td>

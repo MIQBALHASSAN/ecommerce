@@ -134,7 +134,7 @@ class Navigation extends React.PureComponent {
         onSearch(newValue);
       },
     };
-    console.log(authenticated);
+    // console.log(authenticated);
     const header_bg = authenticated
       ? "dashboard_header fixed-mobile-header"
       : "header fixed-mobile-header shadow";

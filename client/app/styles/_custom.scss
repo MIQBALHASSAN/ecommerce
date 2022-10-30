@@ -1,4 +1,13 @@
 // Here you can add other styles
+.order_list_image {
+  height: 100px;
+  width: 100px;
+}
+.order_list_image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .dashboard_header .brand .logo {
   color: #fff !important;
 }
