@@ -36,7 +36,7 @@
   // margin-top: 10px;
   // margin-bottom: 10px;
   // height: 95px;
-  padding: 16px 0px;
+  padding: 25px 0px;
 
   @include media-breakpoint-up(lg) {
     // height: 60px;
@@ -62,7 +62,8 @@
   .fa {
     cursor: pointer;
     color: $theme-dark-gray;
-    font-size: $font-size-x-huge !important;
+    // font-size: $font-size-x-huge !important;
+    font-size: 35px;
   }
 
   .col-no-padding {
@@ -231,7 +232,7 @@
           width: 100%;
           height: 2px;
           background-color: $primary-bg;
-          content: '';
+          content: "";
           opacity: 0;
           -webkit-transition: opacity $layout-transition-speed,
             -webkit-transform $layout-transition-speed;

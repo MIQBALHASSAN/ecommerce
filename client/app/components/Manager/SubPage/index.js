@@ -4,29 +4,30 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import Button from '../../Common/Button';
+import Button from "../../Common/Button";
 
-const SubPage = props => {
+const SubPage = (props) => {
   const { title, actionTitle, handleAction, children } = props;
 
   return (
-    <div className='sub-page'>
-      <div className='subpage-header'>
-        <h3 className='mb-0'>{title}</h3>
+    <div className="sub-page">
+      <div className="subpage-header p-3 shadow">
+        <h3 className="mb-0 title">{title}</h3>
         {actionTitle && (
-          <div className='action'>
+          <div className="action">
             <Button
-              variant='none'
-              size='sm'
+              className="btn_style"
+              variant="none"
+              size="sm"
               text={actionTitle}
               onClick={handleAction}
             />
           </div>
         )}
       </div>
-      <div className='subpage-body'>{children}</div>
+      <div className="subpage-body">{children}</div>
     </div>
   );
 };

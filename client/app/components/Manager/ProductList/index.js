@@ -15,8 +15,8 @@ const ProductList = (props) => {
   return (
     <div className="p-list">
       <Table responsive bordered={true} className="text-center">
-        <thead className="bg-primary text-light text-center">
-          <tr>
+        <thead className="table_head_bg text-light text-center">
+          <tr className="text-left">
             <th>Name</th>
             <th>Description</th>
             <th>Image</th>
@@ -25,7 +25,7 @@ const ProductList = (props) => {
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={index}>
+            <tr className="text-left" key={index}>
               <td>{product.name}</td>
               <td>{product.description}</td>
               <td>

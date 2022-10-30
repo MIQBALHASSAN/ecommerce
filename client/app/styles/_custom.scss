@@ -1,5 +1,63 @@
 // Here you can add other styles
-// register page styleing
+.dashboard_header .brand .logo {
+  color: #fff !important;
+}
+.dashboard_header .top-header .navbar {
+  background-color: transparent !important;
+}
+.dashboard_header .top-header .navbar-nav span:hover {
+  color: #fff !important;
+}
+.panel-sidebar .panel-links {
+  text-align: left;
+}
+.panel-sidebar .panel-links li a {
+  color: rgb(255, 255, 255) !important;
+  border-radius: 10px;
+  padding: 6% 5%;
+}
+.panel-sidebar .panel-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgb(255, 255, 255) !important;
+  border-radius: 10px;
+  padding: 6% 5%;
+}
+.panel-sidebar .panel-links li a.active-link {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: white !important;
+  border-radius: 10px;
+  padding: 6% 5%;
+  border: none;
+}
+.dashboard_header {
+  background: rgb(17, 25, 42);
+}
+.dashboard_footer {
+  background: #11192a;
+}
+.panel-sidebar .panel-links li:last-child {
+  border-bottom: 1px solid #11192a;
+}
+
+.panel-sidebar {
+  background: rgb(17, 25, 42);
+}
+.subpage-header {
+  border-radius: 10px;
+}
+.subpage-header .title {
+  font-size: 25px !important;
+}
+.subpage-header .action .btn_style {
+  background-color: #11192a;
+  color: #fff;
+  border-radius: 5px !important;
+  padding: 10px 30px;
+}
+.subpage-header .action .btn_style .btn-text {
+  color: #fff;
+  font-size: 18px;
+}
 .signup-form {
   margin: 10% 1%;
   border-radius: 10px;
@@ -68,7 +126,6 @@
   margin-bottom: 5%;
 }
 
-// dashboard styling
 .admin_edit_btn {
   padding: 6px;
   cursor: pointer;
@@ -77,4 +134,95 @@
 .dashboard_image {
   height: 90px;
   width: auto;
+}
+.card-subtitle {
+  text-transform: none !important;
+}
+
+.table_head_bg {
+  background: #11192a;
+}
+
+.add-product {
+  background-color: #e5e5e5;
+}
+
+.add-product .input-box input[type="file"] {
+  background-color: #fff;
+}
+.add-product-actions .add_submit_btn {
+  background-color: #11192a;
+  margin-bottom: 20px;
+}
+.add-product .add_submit_btn .btn-text {
+  color: #fff;
+  font-size: 18px;
+}
+.add-product .select-container .react-select__control {
+  height: 45px;
+}
+.reset-form,
+.edit-address,
+.add-address,
+.add-category,
+.edit-category,
+.add-brand,
+.edit-brand {
+  background-color: #e5e5e5;
+  padding: 1% 2%;
+}
+.order-details {
+  background-color: #e5e5e5;
+  padding: 3% 6%;
+}
+.reset-form .reset-actions .custom-btn-secondary {
+  background-color: #11192a;
+  margin-bottom: 20px;
+}
+.reset-form .reset-actions .custom-btn-secondary .btn-text {
+  color: #fff;
+  font-size: 18px;
+}
+
+// order details style
+.order-details .order-meta h2,
+.order-details .order-items h2 {
+  font-size: 25px !important;
+}
+.order-details .order-meta .order_detail_back_btn {
+  background-color: #11192a;
+}
+.order-details .order-meta .order_detail_back_btn .btn-icon {
+  color: #fff;
+}
+.order-details .order-meta .order_detail_back_btn .btn-text {
+  color: #fff;
+}
+.order-meta .title {
+  border-bottom: 1px solid #11192a;
+}
+
+.order_item_detail_header {
+  border: 1px solid #fff;
+  width: 152px;
+  padding: 10px 5px;
+  font-size: 16px;
+}
+.order_item_detail_body {
+  width: 152px;
+  border: 1px solid #11192a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-summary {
+  border: 1px solid #11192a;
+}
+.order-summary h2 {
+  border-bottom: 1px solid #11192a;
+}
+
+.order-summary hr {
+  border-color: #11192a;
 }

@@ -60,9 +60,11 @@
     margin-bottom: 0;
 
     li {
-      border-top: $border-primary;
-      border-right: $border-primary;
-      border-left: $border-primary;
+      // border-top: $border-primary;
+      // border-top: 1px solid #4072ef;
+
+      // border-right: $border-primary;
+      // border-left: $border-primary;
 
       &:hover {
         a {

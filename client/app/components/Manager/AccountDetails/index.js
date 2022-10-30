@@ -22,7 +22,7 @@ const AccountDetails = (props) => {
   return (
     <div className="account-details">
       <Table responsive bordered={true} className="text-center">
-        <thead className="bg-primary text-light text-center">
+        <thead className="table_head_bg text-light text-center">
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
