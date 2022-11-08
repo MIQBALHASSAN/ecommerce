@@ -16,14 +16,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//     frameguard: true,
-//   })
-// );
+
 app.use(cors());
-// app.use(express.static(path.resolve(__dirname, "../dist")));
 app.use("/uploads", express.static("./dashboard"));
 setupDB();
 require("./config/passport")(app);

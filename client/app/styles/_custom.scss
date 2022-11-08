@@ -1,4 +1,12 @@
 // Here you can add other styles
+.dashboard_header .top-header .navbar-nav .cart-icon .bag-icon,
+.dashboard_header .top-header .navbar-nav .cart-icon {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+.dashboard_header .top-header .admin-cart_btn {
+  margin-right: 20px !important;
+}
 .order_list_image {
   height: 100px;
   width: 100px;
@@ -176,7 +184,9 @@
 .add-category,
 .edit-category,
 .add-brand,
-.edit-brand {
+.edit-brand,
+.edit-product,
+.add-merchant {
   background-color: #e5e5e5;
   padding: 1% 2%;
 }
@@ -236,6 +246,16 @@
   border-color: #11192a;
 }
 
+.wishlist-image {
+  height: 100px;
+  width: auto;
+}
+.wishlist-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 /*============================================
                   
                 frontend Style
@@ -264,4 +284,17 @@
 }
 .brand-list .brand-box {
   background-color: #e4e6eb;
+}
+.product-shop {
+  padding: 5%;
+  background-color: #e5e5e5;
+}
+.shop-read-more {
+  color: blue !important;
+  font-weight: 900;
+}
+.single-product-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }

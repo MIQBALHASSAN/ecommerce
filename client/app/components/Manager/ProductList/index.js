@@ -17,7 +17,11 @@ const ProductList = (props) => {
       <Table responsive bordered={true} className="text-center">
         <thead className="table_head_bg text-light text-center">
           <tr className="text-left">
+            <th>SKU ID</th>
             <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Brand Name</th>
             <th>Description</th>
             <th>Image</th>
             <th>Action</th>
@@ -26,9 +30,13 @@ const ProductList = (props) => {
         <tbody>
           {products.map((product, index) => (
             <tr className="text-left" key={index}>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td>
+              <td className="align-middle">{product.sku}</td>
+              <td className="align-middle">{product.name}</td>
+              <td className="align-middle">{product.quantity}</td>
+              <td className="align-middle">{product.price}</td>
+              <td className="align-middle">{product.brand.name}</td>
+              <td className="align-middle">{product.description}</td>
+              <td className="align-middle">
                 <img
                   className="item-image dashboard_image"
                   src={`http://localhost:8080/${
@@ -38,7 +46,7 @@ const ProductList = (props) => {
                   }`}
                 />
               </td>
-              <td>
+              <td className="align-middle">
                 <Link to={`/dashboard/product/edit/${product._id}`} key={index}>
                   <Badge color="info" pill className="admin_edit_btn">
                     Edit

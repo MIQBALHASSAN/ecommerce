@@ -20,7 +20,6 @@ const UserList = (props) => {
           <tr>
             <th>Full Name</th>
             <th>Email</th>
-            <th>Provider</th>
             <th>Role</th>
             <th>Created At</th>
           </tr>
@@ -34,7 +33,6 @@ const UserList = (props) => {
                   : "N/A"}
               </td>
               <td>{user?.email}</td>
-              <td>{user?.provider}</td>
               <td>
                 <UserRole user={user} />
               </td>

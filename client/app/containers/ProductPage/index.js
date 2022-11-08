@@ -65,7 +65,7 @@ class ProductPage extends React.PureComponent {
           <>
             <Row className="flex-row">
               <Col xs="12" md="5" lg="5" className="mb-3 px-3 px-md-2">
-                <div className="position-relative">
+                <div className="position-relative single-product-image">
                   <img
                     className="item-image"
                     src={`http://localhost:8080/${
@@ -95,7 +95,7 @@ class ProductPage extends React.PureComponent {
                           see more from{" "}
                           <Link
                             to={`/shop/brand/${product.brand.slug}`}
-                            className="default-link"
+                            className="default-link shop-read-more"
                           >
                             {product.brand.name}
                           </Link>
@@ -134,7 +134,7 @@ class ProductPage extends React.PureComponent {
                             product.inventory <= 0 &&
                             !shopFormErrors["quantity"]
                           }
-                          text="Remove From Bag"
+                          text="Remove From Cart"
                           className="bag-btn"
                           icon={<BagIcon />}
                           onClick={() => handleRemoveFromCart(product)}
@@ -145,7 +145,7 @@ class ProductPage extends React.PureComponent {
                           disabled={
                             product.quantity <= 0 && !shopFormErrors["quantity"]
                           }
-                          text="Add To Bag"
+                          text="Add To Cart"
                           className="bag-btn"
                           icon={<BagIcon />}
                           onClick={() => handleAddToCart(product)}

@@ -220,39 +220,48 @@ class Navigation extends React.PureComponent {
               <Navbar color="light" light expand="md" className="mt-1 mt-md-0">
                 <Nav navbar>
                   {authenticated ? (
-                    <UncontrolledDropdown nav inNavbar>
-                      <DropdownToggle nav>
-                        {/* {user.firstName ? user.firstName : "Welcome"} */}
-                        <span className="fa fa-user-circle"></span>
-                      </DropdownToggle>
-                      <DropdownMenu right>
-                        <DropdownItem>
-                          <div className="d-flex justify-content-center align-items-center flex-column">
-                            <img
-                              src="https://reduction-admin.github.io/react-reduction/static/media/100_4.978e51b5.jpg"
-                              className="rounded-circle mb-2"
-                              style={{ width: "80px", height: "80px" }}
-                            />
-                            <div className="card-title">
-                              {user.firstName
-                                ? user.firstName + " " + user.lastName
-                                : "Welcome"}
+                    <>
+                      <CartIcon
+                        className="d-none d-md-block admin-cart_btn"
+                        cartItems={cartItems}
+                        onClick={toggleCart}
+                      />
+                      <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav>
+                          {/* {user.firstName ? user.firstName : "Welcome"} */}
+                          <span className="fa fa-user-circle"></span>
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                          <DropdownItem>
+                            <div className="d-flex justify-content-center align-items-center flex-column">
+                              <img
+                                src="https://reduction-admin.github.io/react-reduction/static/media/100_4.978e51b5.jpg"
+                                className="rounded-circle mb-2"
+                                style={{ width: "80px", height: "80px" }}
+                              />
+                              <div className="card-title">
+                                {user.firstName
+                                  ? user.firstName + " " + user.lastName
+                                  : "Welcome"}
+                              </div>
+                              <div className="card-subtitle">{user.email}</div>
+                              <p className="card-text">
+                                <small>{user.role}</small>
+                              </p>
                             </div>
-                            <div className="card-subtitle">{user.email}</div>
-                            <p className="card-text">
-                              <small>{user.role}</small>
-                            </p>
-                          </div>
-                          <hr className="m-0" />
-                        </DropdownItem>
-                        <DropdownItem
-                          onClick={() => history.push("/dashboard")}
-                        >
-                          Dashboard
-                        </DropdownItem>
-                        <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
-                      </DropdownMenu>
-                    </UncontrolledDropdown>
+                            <hr className="m-0" />
+                          </DropdownItem>
+                          <DropdownItem
+                            onClick={() => history.push("/dashboard")}
+                          >
+                            Dashboard
+                          </DropdownItem>
+                          <DropdownItem onClick={signOut}>
+                            Sign Out
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    </>
                   ) : (
                     <>
                       <CartIcon

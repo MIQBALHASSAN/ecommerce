@@ -7,6 +7,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { Badge, Table } from "reactstrap";
 
 import { formatDate } from "../../../utils/date";
 import Button from "../../Common/Button";
@@ -19,7 +20,7 @@ const WishList = (props) => {
     if (item.product) {
       const product = item.product;
       return (
-        <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="wishlist-image d-flex flex-column justify-content-center align-items-center">
           <img
             className="item-image"
             src={`http://localhost:8080/${
@@ -35,37 +36,47 @@ const WishList = (props) => {
 
   return (
     <div className="w-list">
-      {wishlist.map((item, index) => (
-        <div
-          key={index}
-          className="d-flex flex-row align-items-center mx-0 mb-3 wishlist-box"
-        >
-          <Link
-            to={`/product/${item.product.slug}`}
-            key={index}
-            className="d-flex flex-1 align-items-center text-truncate"
-          >
-            {getProductImage(item)}
-            <div className="d-flex flex-column justify-content-center px-3 text-truncate">
-              <h4 className="text-truncate">{item.product.name}</h4>
-              <p className="mb-2 price">${item.product.price}</p>
-              <label className="text-truncate">{`Wishlist Added on ${formatDate(
+      <Table responsive bordered={true} className="text-center">
+        <thead className="table_head_bg text-light text-center">
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {wishlist.map((item, index) => (
+            <tr key={index}>
+              <td className="align-middle">{getProductImage(item)}</td>
+              <td className="align-middle">{item.product.name}</td>
+              <td className="align-middle">{item.product.price}</td>
+              <td className="align-middle">{`Wishlist Added on ${formatDate(
                 item.created
-              )}`}</label>
-            </div>
-          </Link>
-          <div className="remove-wishlist-box">
-            <Button
-              variant="danger"
-              icon={<XIcon className="text-white" width={15} />}
-              round={20}
-              onClick={(e) => {
-                updateWishlist(!item.isLiked, item.product._id);
-              }}
-            />
-          </div>
-        </div>
-      ))}
+              )}`}</td>
+              <td className="align-middle">
+                <Link to={`/product/${item.product.slug}`} key={index}>
+                  <Badge color="info" pill className="admin_edit_btn">
+                    Edit
+                  </Badge>
+                </Link>
+              </td>
+              <td className="align-middle">
+                <Button
+                  variant="danger"
+                  icon={<XIcon className="text-white" width={15} />}
+                  round={20}
+                  onClick={(e) => {
+                    updateWishlist(!item.isLiked, item.product._id);
+                  }}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };
